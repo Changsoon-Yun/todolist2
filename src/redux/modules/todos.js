@@ -19,14 +19,14 @@ export const deleteTodo = (payload) => {
 //Initial State
 const initialState = {
   todos: [{
-    id: 1,
+    id: 1659081265025,
     title: "리액트 강의보기",
     body: "챕터 1부터 챕터 12까지 학습",
     date:  "2022-07-30",
     isDone: false
   },
     {
-      id: 2,
+      id: 1659081265026,
       title: "점심 먹기",
       body: "점심 뭐먹지..?",
       date: "2022-07-30",
@@ -40,6 +40,7 @@ const initialState = {
 const todos = (state = initialState, action) => {
   switch (action.type) {
     case "CREATE_TODO":
+      console.log(state.todos)
       return {
         ...state, todos: [action.payload, ...state.todos]
       }
@@ -59,6 +60,7 @@ const todos = (state = initialState, action) => {
       return state;
   }
 };
+
 
 
 export default todos

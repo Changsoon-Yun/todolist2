@@ -11,6 +11,7 @@ const Detail = () => {
   useEffect(()=> {
     if(todos.length >= 1) {
       const targetTodo = todos.find((todo)=> parseInt(todo.id) === parseInt(id))
+      console.log(targetTodo)
       if(targetTodo) {
         setData(targetTodo)
       }else {
