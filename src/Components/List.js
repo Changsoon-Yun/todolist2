@@ -1,7 +1,9 @@
 import {useDispatch, useSelector} from "react-redux";
 import {deleteTodo, toggleTodo} from "../redux/modules/todos";
+import {useNavigate} from "react-router-dom";
 
 const List = ({id,title, body, isDone, date}) => {
+  const navigate = useNavigate()
   const dispatch = useDispatch()
   const onToggleHandler = () => {
     dispatch(
@@ -17,10 +19,13 @@ const List = ({id,title, body, isDone, date}) => {
       })
     )
   }
+  const goDetail = () => {
+    navigate(`/detail/${id}`)
+  }
   return (
     <>
       <li>
-        <div className="listContent">
+        <div className="listContent" onClick={goDetail}>
           <h3>{title} <span className={'listDate'}>{date}</span></h3>
           <p>{body}</p>
         </div>

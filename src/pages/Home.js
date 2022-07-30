@@ -2,10 +2,10 @@ import MyHeader from "../Components/MyHeader";
 import List from "../Components/List";
 import {useSelector} from "react-redux";
 import InputContainer from "../Components/InputContainer";
-import {useRef} from "react";
 
 const Home = () => {
   const todos = useSelector(state => (state.todos.todos))
+
   return (
     <div className={"home"}>
       <MyHeader center={"My Todo List"} right={'React'}/>

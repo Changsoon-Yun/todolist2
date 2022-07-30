@@ -11,6 +11,7 @@ const InputContainer = () => {
   const dispatch = useDispatch()
 
   const onSubmitHandler = () => {
+    console.log(new Date().toDateString().slice(0,10))
     if (title.length < 1) {
       titleRef.current.focus()
       return
@@ -25,7 +26,7 @@ const InputContainer = () => {
         title,
         body,
         isDone: false,
-        date:new Date().toISOString().slice(0,10)
+        date:new Date().toISOString().slice(0,10),
       }))
     setTitle("")
     setBody("")
