@@ -1,38 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    border: none;
+    font-family: 'Noto Sans KR', sans-serif;
+    list-style: none;
+    background-color: transparent;
+}
+
+button {
+    cursor: pointer;
+}
+
+body {
+    background-color: #f6f6f6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+#root {
+    background-color: white;
+    box-shadow: rgba(100, 100, 111, 0.2) 0 7px 29px 0;
+}
+
 .App {
-  text-align: center;
+    min-height: 100vh;
+    padding: 0 20px;
+    width: 600px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Header */
+header {
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #e2e2e2;
+    height: 76px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+header div {
+    display: flex;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+header .headCenterBox {
+    width: 50%;
+    justify-content: center;
 }
 
-.App-link {
-  color: #61dafb;
+header .headLeftBox {
+    width: 25%;
+    justify-content: start;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+header .headRightBox {
+    width: 25%;
+    justify-content: right;
+}
+
+section {
+    margin: 30px 0;
+}
+
+
+/*inputBox*/
+.inputBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #e2e2e2;
+}
+
+.inputBox .inputWrapper {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.inputBox .inputWrapper input {
+    height: 30px;
+    border: 1px solid #e2e2e2;
+    border-radius: 5px;
+    margin-left: 10px;
+    padding: 0 10px;
+}
+.inputBox .inputWrapper textarea {
+    border: 1px solid #e2e2e2;
+    border-radius: 5px;
+    margin-left: 10px;
+    padding: 10px;
+    width: 200px;
+    resize: vertical;
+}
+
+.inputBox button {
+    border: 1px solid #e2e2e2;
+    border-radius: 5px;
+    padding: 5px;
+    height: 80px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    align-self: end;
+}
+
+.inputBox button:active {
+    background-color: black;
+    color: white;
+}
+
+/*listBox*/
+.listBox {
+
+}
+
+.listBox .list li {
+    margin: 20px;
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #e2e2e2;
+    border-radius: 10px;
+    position: relative;
+}
+
+.listBox .list li .listContent {
+    padding: 20px;
+    flex: 1;
+}
+
+
+.listBox .list li .listContent .listDate {
+    font-size: 12px;
+    color: #6c6c6c;
+    font-weight: normal;
+}
+
+.listBox .list li .listContent h3 {
+    padding-bottom: 10px;
+}
+
+.listBox .list li .listBtn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+}
+
+.listBox .list li .listBtn button {
+    padding: 10px;
+    border: 1px solid #e2e2e2;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.listBox .list li .listBtn .btn-detail {
+    color: purple;
+}
+
+.listBox .list li .listBtn .btn-detail:active {
+    background-color: purple;
+    color: white;
+}
+
+.listBox .list li .listBtn .btn-delete {
+    color: red;
+}
+
+.listBox .list li .listBtn .btn-delete:active {
+    background-color: red;
+    color: white;
+}
+
+.listBox .list li .listBtn .btn-complete {
+    color: green;
+}
+
+.listBox .list li .listBtn .btn-complete:active {
+    background-color: green;
+    color: white;
+}
+
+/*Detail*/
+.Detail .content {
+    height: calc(100vh - 80px);
+    padding: 20px;
+    border-bottom: 1px solid #e2e2e2;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Detail .content .listDate {
+    font-size: 12px;
+    color: #6c6c6c;
+    font-weight: normal;
+}
+
+.Detail .content h3 {
+    font-size: 25px;
+}
+
+.Detail .content .contentText {
+    margin: 20px 0;
 }
