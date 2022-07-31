@@ -40,9 +40,8 @@ const initialState = {
 const todos = (state = initialState, action) => {
   switch (action.type) {
     case "CREATE_TODO":
-      console.log(state.todos)
       return {
-        ...state, todos: [action.payload, ...state.todos]
+        todos: [action.payload, ...state.todos]
       }
     case "DELETE_TODO":
       const new_todo_list = state.todos.filter((todo)=> {

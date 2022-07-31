@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import MyHeader from "../Components/MyHeader";
 import {useNavigate, useParams} from "react-router-dom";
 import {useSelector} from "react-redux";
+import styled from "styled-components";
 
 const Detail = () => {
   const {id} =useParams()
@@ -22,25 +23,65 @@ const Detail = () => {
   },[id, todos])
   if(!data) {
     return (
-      <div className="Detail">
+      <DetailWrapper>
         로딩중입니다
-      </div>
+      </DetailWrapper>
     )
     } else {
     return (
-      <div className={"Detail"}>
+      <DetailWrapper>
         <MyHeader left={<p onClick={() => navigate(-1)}>돌아가기</p>}
                   center={"My Todo List Detail"}
                   right={`ID: ${data.id}`}/>
-        <div className="content">
-          <p className={'listDate'}>{data.date}</p>
-          <h3>{data.title}</h3>
-          <p className={"contentText"}>{data.body}</p>
-        </div>
-      </div>
+        <Content>
+          <Date>{data.date}</Date>
+          <Title>{data.title}</Title>
+          <Body>{data.body}</Body>
+        </Content>
+      </DetailWrapper>
     )
   }
-  console.log(data.date)
-
 }
+
+const DetailWrapper = styled.div`
+  & .content {
+
+    & .listDate {
+      font-size: 12px;
+      color: #6c6c6c;
+      font-weight: normal;
+    }
+    
+    & h3 {
+      font-size: 25px;
+    }
+    & .contentText {
+      margin: 20px 0;
+    }
+  }
+`
+
+const Content = styled.div`
+  height: calc(100vh - 80px);
+  padding: 20px;
+  border-bottom: 1px solid #e2e2e2;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+`
+
+const Date = styled.p`
+  font-size: 12px;
+  color: #6c6c6c;
+  font-weight: normal;
+`
+
+const Title = styled.h3`
+  font-size: 25px;
+`
+
+const Body = styled.p`
+  margin: 20px 0;
+`
 export default Detail

@@ -1,17 +1,35 @@
+import styled from "styled-components";
+
 const MyHeader = ({left, center, right}) => {
   return (
-    <header>
-      <div className="headLeftBox">
+    <Header>
+      <HeaderContent width={"25%"} position={"start"}>
         {left}
-      </div>
-      <div className="headCenterBox">
+      </HeaderContent>
+      <HeaderContent width={"50%"} position={"center"}>
         <h2>{center}</h2>
-      </div>
-      <div className="headRightBox">
+      </HeaderContent>
+      <HeaderContent width={"25%"} position={"right"}>
         <p>{right}</p>
-      </div>
-    </header>
+      </HeaderContent>
+    </Header>
   )
 }
 
+const Header = styled.header`
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #e2e2e2;
+  height: 76px;
+  & > div {
+    display: flex;
+  }
+`
+
+const HeaderContent = styled.div`
+  width: ${props=>props.width};
+  justify-content: ${props=>props.position};
+  cursor: ${props => props.position === "start" ? "pointer": "auto"};
+`
 export default MyHeader
