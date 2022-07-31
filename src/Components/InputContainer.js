@@ -1,6 +1,7 @@
 import {useRef, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {createTodo} from "../redux/modules/todos";
+import styled from "styled-components";
 
 const InputContainer = () => {
   const [title, setTitle] = useState("")
@@ -21,21 +22,20 @@ const InputContainer = () => {
     }
     dispatch(
       createTodo({
-        id:Number(new Date()),
+        id: Number(new Date()),
         title,
         body,
         isDone: false,
-        date:new Date().toLocaleString(),
+        date: new Date().toLocaleDateString(),
       }))
     setTitle("")
     setBody("")
-
   }
 
   return (
-    <section className="inputBox">
-      <div className="inputWrapper2">
-        <div className={"inputWrapper"}>
+    <InputSection>
+      <div>
+        <InputWrapper>
           <label>제목</label>
           <input
             ref={titleRef}
@@ -44,8 +44,8 @@ const InputContainer = () => {
               setTitle(e.target.value)
             )}
             type="text"/>
-        </div>
-        <div className={"inputWrapper"}>
+        </InputWrapper>
+        <InputWrapper>
           <label>내용</label>
           <textarea
             ref={bodyRef}
@@ -53,11 +53,58 @@ const InputContainer = () => {
             onChange={(e) => (
               setBody(e.target.value)
             )}/>
-        </div>
+        </InputWrapper>
       </div>
       <button onClick={onSubmitHandler}>추가하기</button>
-    </section>
+    </InputSection>
   )
 }
+
+const InputSection = styled.section`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #e2e2e2;
+
+  & > button {
+    border: 1px solid #e2e2e2;
+    border-radius: 5px;
+    padding: 5px;
+    height: 80px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    align-self: end;
+
+    &:active {
+      background-color: black;
+      color: white;
+    }
+  }
+`
+
+const InputWrapper = styled.div`
+  padding: 10px;
+  display: flex;
+  align-items: center;
+
+  & input {
+    width: 300px;
+    height: 30px;
+    border: 1px solid #e2e2e2;
+    border-radius: 5px;
+    margin-left: 10px;
+    padding: 0 10px;
+  }
+
+  & textarea {
+    width: 300px;
+    border: 1px solid #e2e2e2;
+    border-radius: 5px;
+    margin-left: 10px;
+    padding: 10px;
+    resize: vertical;
+  }
+`
 
 export default InputContainer
