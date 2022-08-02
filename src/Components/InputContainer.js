@@ -4,13 +4,12 @@ import {createTodo} from "../redux/modules/todos";
 import styled from "styled-components";
 
 const InputContainer = () => {
+  const uid = useSelector(state => (state.todos.uid))
   const [title, setTitle] = useState("")
   const [body, setBody] = useState("")
-
   const titleRef = useRef()
   const bodyRef = useRef()
   const dispatch = useDispatch()
-
   const onSubmitHandler = () => {
     if (title.length < 1) {
       titleRef.current.focus()
@@ -22,7 +21,7 @@ const InputContainer = () => {
     }
     dispatch(
       createTodo({
-        id: Number(new Date()),
+        id: uid,
         title,
         body,
         isDone: false,

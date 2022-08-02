@@ -30,6 +30,6 @@ const Header = styled.header`
 const HeaderContent = styled.div`
   width: ${props=>props.width};
   justify-content: ${props=>props.position};
-  cursor: ${props => props.position === "start" ? "pointer": "auto"};
+  cursor: ${props => props.position === "start" ? "pointer": null};
 `
 export default MyHeader

@@ -1,6 +1,7 @@
 import List from "./List";
 import {useSelector} from "react-redux";
 import styled from "styled-components";
+import uuid from "react-uuid";
 
 const ListContainer = () => {
   const todos = useSelector(state => (state.todos.todos))
@@ -11,7 +12,7 @@ const ListContainer = () => {
         <ListBoxList>
           <ol>
             {todos.map((todo)=> (
-              !todo.isDone && <List key={todo.id} {...todo}/>
+              !todo.isDone && <List key={uuid()} {...todo}/>
             ))}
           </ol>
         </ListBoxList>
@@ -21,7 +22,7 @@ const ListContainer = () => {
         <ListBoxList>
           <ol>
             {todos.map((todo)=> (
-              todo.isDone && <List key={todo.id} {...todo}/>
+              todo.isDone && <List key={uuid()} {...todo}/>
             ))}
           </ol>
         </ListBoxList>

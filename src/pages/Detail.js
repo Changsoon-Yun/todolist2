@@ -12,7 +12,6 @@ const Detail = () => {
   useEffect(()=> {
     if(todos.length >= 1) {
       const targetTodo = todos.find((todo)=> parseInt(todo.id) === parseInt(id))
-      console.log(targetTodo)
       if(targetTodo) {
         setData(targetTodo)
       }else {
@@ -44,25 +43,13 @@ const Detail = () => {
 }
 
 const DetailWrapper = styled.div`
-  & .content {
-
-    & .listDate {
-      font-size: 12px;
-      color: #6c6c6c;
-      font-weight: normal;
-    }
-    
-    & h3 {
-      font-size: 25px;
-    }
-    & .contentText {
-      margin: 20px 0;
-    }
-  }
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 `
 
 const Content = styled.div`
-  height: calc(100vh - 80px);
+  flex: 1;
   padding: 20px;
   border-bottom: 1px solid #e2e2e2;
   display: flex;

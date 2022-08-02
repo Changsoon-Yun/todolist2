@@ -1,4 +1,6 @@
 //Action Value
+import {useRef} from "react";
+
 const CREATE_TODO = "CREATE_TODO";
 const TOGGLE_TODO = "TOGGLE_TODO"
 const DELETE_TODO = "DELETE_TODO"
@@ -18,15 +20,16 @@ export const deleteTodo = (payload) => {
 
 //Initial State
 const initialState = {
+  uid:3,
   todos: [{
-    id: 1659081265025,
+    id: 1,
     title: "리액트 강의보기",
     body: "챕터 1부터 챕터 12까지 학습",
     date:  "2022-07-30",
     isDone: false
   },
     {
-      id: 1659081265026,
+      id: 2,
       title: "점심 먹기",
       body: "점심 뭐먹지..?",
       date: "2022-07-30",
@@ -41,7 +44,8 @@ const todos = (state = initialState, action) => {
   switch (action.type) {
     case "CREATE_TODO":
       return {
-        todos: [action.payload, ...state.todos]
+        uid:state.uid+1,
+        todos: [action.payload, ...state.todos],
       }
     case "DELETE_TODO":
       const new_todo_list = state.todos.filter((todo)=> {
