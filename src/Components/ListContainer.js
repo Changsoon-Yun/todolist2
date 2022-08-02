@@ -12,7 +12,7 @@ const ListContainer = () => {
         <ListBoxList>
           <ol>
             {todos.map((todo)=> (
-              !todo.isDone && <List key={uuid()} {...todo}/>
+              !todo.isDone && <List key={todo.id} {...todo}/>
             ))}
           </ol>
         </ListBoxList>
@@ -22,7 +22,7 @@ const ListContainer = () => {
         <ListBoxList>
           <ol>
             {todos.map((todo)=> (
-              todo.isDone && <List key={uuid()} {...todo}/>
+              todo.isDone && <List key={todo.id} {...todo}/>
             ))}
           </ol>
         </ListBoxList>

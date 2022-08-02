@@ -51,14 +51,14 @@ const todos = (state = initialState, action) => {
       const new_todo_list = state.todos.filter((todo)=> {
         return action.payload.id !== todo.id
       })
-      return {todos: new_todo_list}
+      return {todos: new_todo_list,uid:state.uid}
 
     case "TOGGLE_TODO":
       const new_todo_list2 = state.todos.map((todo)=> {
         return todo.id === action.payload.id ? {...todo, isDone: !todo.isDone}: todo
       })
       console.log(state.todos)
-      return {todos: new_todo_list2}
+      return {todos: new_todo_list2,uid:state.uid}
     default:
       return state;
   }
