@@ -9,7 +9,7 @@ const Detail = () => {
   const navigate = useNavigate()
   const todos = useSelector(state => (state.todos.todos))
   const [data, setData] = useState()
-  useEffect(()=> {
+  useEffect(()=> {//공부하셈
     if(todos.length >= 1) {
       const targetTodo = todos.find((todo)=> parseInt(todo.id) === parseInt(id))
       if(targetTodo) {

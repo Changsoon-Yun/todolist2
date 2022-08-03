@@ -49,13 +49,24 @@ const ListContainer = styled.li`
   border: 1px solid #e2e2e2;
   border-radius: 10px;
   position: relative;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 11px 0px;
+
+  &:hover {
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 7px 11px 0px;
+  }
 `
 
 const Title = styled.h3`
   padding-bottom: 10px;
 `
 
-const Body = styled.p``
+const Body = styled.p`
+  color: #c0c0c0;
+
+  ${ListContainer}:hover & {
+    color: black;
+  }
+`
 
 const ListDate = styled.span`
   font-size: 12px;
@@ -97,3 +108,65 @@ const ListBtn = styled.button`
 `
 
 export default List
+
+//
+// function List() {
+//
+//   const list = useSelector((state) => state.data.todos); // 추가해주세요.
+//   const dispatch = useDispatch();
+//
+//
+//   const onRemovehandle = (id) => {
+//
+//     dispatch(
+//       moveTodo({
+//         id:id,
+//       })
+//     );
+//   };
+//
+//
+//   return (
+//     <div className="qew">
+//       <div className="Working">
+//         <h2>Working.. 🔥</h2>
+//       </div>
+//       <Outcon>
+//         {
+//           list.map((todo, i) =>
+//             <Containar key={todo.id}>
+//               <h2>{list[i].title}</h2>
+//               <p>{list[i].contents}</p>
+//               <Delete onClick={()=>{onRemovehandle(todo.id)}}>삭제하기</Delete>
+//               <Clear>추가하기</Clear>
+//               <Detail>상세 보기</Detail>
+//             </Containar>
+//           )
+//         }
+//       </Outcon>
+//       <div className="Done">
+//         <h2>Done..! 🎉</h2>
+//       </div>
+//     </div>
+//   )
+// }
+//
+//
+//
+//
+//
+//
+// function solution(12313) {
+//
+//
+// }
+//
+// solution()
+
+
+
+
+
+
+
+
